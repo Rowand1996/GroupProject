@@ -1,25 +1,26 @@
-import * as React from 'react';
+import React, { Component } from "react";
+import HomePage from './components/HomePage.jsx';
+import Symptoms from './components/Symptoms.jsx';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-export default class App extends React.Component {
+// import $ from 'jquery';
 
-    constructor(props) {
-        super(props);
 
-        this.state = { name: null };
-    }
 
-    async componentWillMount() {
-        let r = await fetch('/api/hello');
-        let name = await r.json();
-        this.setState({ name })
-    }
 
-    render () {
-        return (
-            <main>
-                <h1>Hello {this.state.name}!</h1>
-                <h2></h2>
-            </main>
-        )
-    }
-}
+
+
+const App = () => { 
+    return (  
+          <Router>
+            <Switch>
+              <Route exact path='/' component={HomePage}/>
+              <Route path='/symptoms' component={Symptoms} />
+            </Switch>
+          </Router>
+        
+    );
+  }
+
+
+export default App;

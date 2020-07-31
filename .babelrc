@@ -1,0 +1,21 @@
+// {
+//     "presets": [
+//         "es2016",
+//         "env",
+//         "react",
+//         "stage-2"
+//     ]
+// },
+{
+    "plugins": [
+        [
+            "@babel/plugin-proposal-class-properties",
+            {
+                "loose": true
+            }
+        ]
+        // "transform-es2015-arrow-functions",
+        // "check-es2015-constants",
+        // "transform-es2015-block-scoping"
+    ]
+}

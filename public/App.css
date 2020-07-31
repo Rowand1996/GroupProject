@@ -1,0 +1,45 @@
+#mainBody {
+  /* background-image: url("https://www.health.harvard.edu/media/content/images/GettyImages-1200706447-crop.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover; */
+  background-color: #A38876;
+}
+
+.navbar-brand {
+  color:#A75351;
+}
+.nav-link {
+  color:#A75351;
+}
+#Logo {
+  margin-right:2px;
+}
+
+.right-aligned {
+  margin-right:10em;
+}
+
+path {
+    pointer-events: all;
+  }
+
+path:hover {
+    opacity: 0.50;
+    cursor: pointer;
+  }
+
+.us-state-map {
+    width:600px;
+    height:300px;
+  }
+
+h1 {
+    text-align: center;
+    color:#A75351;
+}
+
+.navbar {
+  background-color: #4E5661;
+}
+
