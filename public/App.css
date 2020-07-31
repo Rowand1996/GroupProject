@@ -15,6 +15,13 @@
 #Logo {
   margin-right:2px;
 }
+#logoutBtn {
+  color:rgba(0,0,0,.5);
+  text-decoration: none;
+}
+#logoutBtn:hover{
+  color:#1F1C1C;
+}
 
 .right-aligned {
   margin-right:10em;
