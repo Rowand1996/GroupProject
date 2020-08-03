@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as passport from 'passport';
 
 import usersRouter from './users';
+import stateRouter from './state';
 
 const router = express.Router();
 
@@ -13,5 +14,6 @@ router.use((req, res, next) => {
 });
 
 router.use('/users', usersRouter);
+router.use('/state', stateRouter);
 
 export default router;
