@@ -21,8 +21,13 @@ const NavBar = ()  => {
 
   let history = useHistory();
   let logOutBtn = $("#logoutBtn");
-  if(isLoggedIn) {
-    
+  let loginBtn = $("#dropDownMenu");
+  if(isAuthenticated) {
+    loginBtn.hide();
+    logOutBtn.show();
+  } else {
+    loginBtn.show();
+    logOutBtn.hide();
   }
   let submitButton = async() => {
     let password = $("#passwordDropDown").val();

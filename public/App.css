@@ -18,6 +18,7 @@
 #logoutBtn {
   color:rgba(0,0,0,.5);
   text-decoration: none;
+  margin-right:10em;
 }
 #logoutBtn:hover{
   color:#1F1C1C;
@@ -44,6 +45,32 @@ path:hover {
 h1 {
     text-align: center;
     color:#A75351;
+}
+
+#stateImg {
+  width:700px;
+  height:550px;
+  position: absolute;
+  padding-left: 20em;
+}
+#stateInfo {
+  border: 2px solid black;
+  margin-top: 2.5em;
+  float: left;
+  position: absolute;
+}
+#stateName {
+  text-align: center;
+  margin:10px;
+}
+#updatedDate {
+  text-align: center;
+  color:red;
+}
+#stateInfo p {
+  text-decoration: underline;
+  text-align: center;
+  margin: 10px;
 }
 
 .navbar {

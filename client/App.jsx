@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HomePage from './components/HomePage.jsx';
 import Symptoms from './components/Symptoms.jsx';
+import statePage from './components/statePage.jsx';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 // import $ from 'jquery';
@@ -15,7 +16,8 @@ const App = () => {
           <Router>
             <Switch>
               <Route exact path='/' component={HomePage}/>
-              <Route path='/symptoms' component={Symptoms} />
+              <Route exact path='/symptoms' component={Symptoms} />
+              <Route path='/state/:id' component={statePage} />
             </Switch>
           </Router>
         
