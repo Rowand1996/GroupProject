@@ -4,10 +4,10 @@ import DB from '../../db';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
-        let id = parseInt(req.params.id);
-        res.json(await DB.States.oneState("AL"));
+        let id = req.params.id;
+        res.json(await DB.States.oneState(id));
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
