@@ -36,6 +36,7 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^5.2.0",
     "react-usa-map": "^1.5.0",
+    "recharts": "^1.8.5",
     "style-loader": "^0.23.1",
     "webpack": "^4.44.1",
     "webpack-node-externals": "^1.7.2"
