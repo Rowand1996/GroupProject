@@ -2,54 +2,54 @@
   background-image: url("https://elgin.edu/media/elginedu/news-and-events/COVID-19-1-800x500-1.jpg");
   background-position: center;
   background-repeat: no-repeat; 
-  background-size: cover;
-  /* background-color: #A38876; */
+  background-size: cover; */
+  background-color: #a38876;
 }
 
 .navbar-brand {
-  color:#A75351;
+  color: #a75351;
 }
 .nav-link {
-  color:#A75351;
+  color: #a75351;
 }
 #Logo {
-  margin-right:2px;
+  margin-right: 2px;
 }
 #logoutBtn {
-  color:rgba(0,0,0,.5);
+  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
-  margin-right:10em;
+  margin-right: 10em;
 }
-#logoutBtn:hover{
-  color:#1F1C1C;
+#logoutBtn:hover {
+  color: #1f1c1c;
 }
 
 .right-aligned {
-  margin-right:10em;
+  margin-right: 10em;
 }
 
 path {
-    pointer-events: all;
-  }
+  pointer-events: all;
+}
 
 path:hover {
-    opacity: 0.50;
-    cursor: pointer;
-  }
+  opacity: 0.5;
+  cursor: pointer;
+}
 
 .us-state-map {
-    width:600px;
-    height:300px;
-  }
+  width: 600px;
+  height: 300px;
+}
 
 h1 {
-    text-align: center;
-    color:#A75351;
+  text-align: center;
+  color: #a75351;
 }
 
 #stateImg {
-  width:700px;
-  height:550px;
+  width: 700px;
+  height: 550px;
   position: absolute;
   padding-left: 20em;
 }
@@ -63,11 +63,11 @@ h1 {
 }
 #stateName {
   text-align: center;
-  margin:10px;
+  margin: 10px;
 }
 #updatedDate {
   text-align: center;
-  color:red;
+  color: red;
 }
 #stateInfo p {
   text-decoration: underline;
@@ -77,7 +77,17 @@ h1 {
 }
 
 .navbar {
-  background-color: #4E5661;
+  background-color: #4e5661;
+}
+
+
+.searchBox {
+  position: absolute;
+  top: 1rem;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
 #graphData {
@@ -113,4 +123,5 @@ h1 {
                  5px 5px red, 
                  6px 6px red;
   }
+
 
