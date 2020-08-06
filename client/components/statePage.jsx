@@ -1,6 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
 import NavBar from "./NavBar.jsx";
 import { useParams } from "react-router-dom";
+import {
+    ResponsiveContainer, LineChart, Line, XAxis, YAxis, ReferenceLine, ReferenceArea,
+    ReferenceDot, Tooltip, CartesianGrid, Legend, Brush, ErrorBar, AreaChart, Area,
+    Label, LabelList
+} from 'recharts';
+import { scalePow, scaleLog } from 'd3-scale';
 
 const statePage = () => {
     let { id } = useParams();
@@ -10,6 +16,15 @@ const statePage = () => {
 
     const [currentDate, setCurrentDate] = useState("");
     const [oneState, setOneState] = useState({});
+    const [graphData, setgraphData] = useState([]);
+    const [scaleValue, setscaleValue] = useState(0);
+
+    const style = {
+        lineHeight: '24px',
+        left: 420,
+    };
+
+
 
     useEffect(() => {
         (async () => {
@@ -35,6 +50,43 @@ const statePage = () => {
                     return
                 }
             }
+            let tempData = [];
+            let maxIncrease = 0;
+            for (let i = 0; i < allStates.length; i++) {
+                if (allStates[i].state === id) {
+                    if (allStates[i].positiveIncrease > maxIncrease) {
+                        maxIncrease = allStates[i].positiveIncrease;
+                    }
+                    tempData.push(allStates[i])
+                    if (tempData.length === 30) {
+                        break;
+                    }
+                }
+            }
+            switch (true) {
+                case maxIncrease < 500:
+                    setscaleValue(500);
+                    break;
+                case maxIncrease < 1000:
+                    setscaleValue(1000);
+                    break;
+                case maxIncrease < 3000:
+                    setscaleValue(3000);
+                    break;
+                case maxIncrease < 5000:
+                    setscaleValue(5000);
+                    break;
+                case maxIncrease < 10000:
+                    setscaleValue(10000);
+                    break;
+                case maxIncrease < 15000:
+                    setscaleValue(15000);
+                    break;
+                default:
+                    setscaleValue(20000);
+                    break;
+            }
+            setgraphData(tempData.reverse());
         })();
     }, []);
 
@@ -87,6 +139,27 @@ const statePage = () => {
                 </div>
                 <div id="stateImg">
                     <img src={`/assets/${imgId}.png`}></img>
+                </div>
+                <div id="graphData">
+                    <LineChart
+                        width={550}
+                        height={400}
+                        data={graphData}
+                        margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                    >
+                        {/* <CartesianGrid stroke="#f5f5f5" /> */}
+                        {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
+                        <Tooltip />
+                        <XAxis stroke="white">
+                            <Label style={{  fill: 'white' }} position="insideBottom"  offset={-20}>Last 30 Days</Label>
+                        </XAxis>
+                        {/* width={130} */}
+                        <YAxis domain={[0, scaleValue]} stroke="white" allowDataOverflow > 
+                            <Label style={{  fill: 'white',textAnchor: 'middle' }} position="insideLeft" offset={-10} angle={270} > Number of New Infected</Label>
+                        </YAxis>
+                        <Line type="monotone" stroke="red" dataKey="positiveIncrease" dot={false} activeDot={{ fill: 'white', stroke: 'black', r: 6 }} />
+                        {/* <Line type="monotone" dataKey="positiveIncrease" activeDot={{ fill: '#387908', stroke: 'none', r: 6 }} /> */}
+                    </LineChart>
                 </div>
             </div>
         </Fragment>
