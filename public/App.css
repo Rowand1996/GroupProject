@@ -1,45 +1,127 @@
 #mainBody {
-  /* background-image: url("https://www.health.harvard.edu/media/content/images/GettyImages-1200706447-crop.jpg");
+  background-image: url("https://elgin.edu/media/elginedu/news-and-events/COVID-19-1-800x500-1.jpg");
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover; */
-  background-color: #A38876;
+  background-color: #a38876;
 }
 
 .navbar-brand {
-  color:#A75351;
+  color: #a75351;
 }
 .nav-link {
-  color:#A75351;
+  color: #a75351;
 }
 #Logo {
-  margin-right:2px;
+  margin-right: 2px;
+}
+#logoutBtn {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  margin-right: 10em;
+}
+#logoutBtn:hover {
+  color: #1f1c1c;
 }
 
 .right-aligned {
-  margin-right:10em;
+  margin-right: 10em;
 }
 
 path {
-    pointer-events: all;
-  }
+  pointer-events: all;
+}
 
 path:hover {
-    opacity: 0.50;
-    cursor: pointer;
-  }
+  opacity: 0.5;
+  cursor: pointer;
+}
 
 .us-state-map {
-    width:600px;
-    height:300px;
-  }
+  width: 600px;
+  height: 300px;
+}
 
 h1 {
-    text-align: center;
-    color:#A75351;
+  text-align: center;
+  color: #a75351;
+}
+
+#stateImg {
+  width: 700px;
+  height: 550px;
+  position: absolute;
+  padding-left: 20em;
+}
+#stateInfo {
+  border: 2px solid grey;
+  margin-top: 2.5em;
+  float: left;
+  position: absolute;
+  background-color: black;
+  border-radius: 1em;
+}
+#stateName {
+  text-align: center;
+  margin: 10px;
+}
+#updatedDate {
+  text-align: center;
+  color: red;
+}
+#stateInfo p {
+  text-decoration: underline;
+  text-align: center;
+  margin: 10px;
+  color: white;
 }
 
 .navbar {
-  background-color: #4E5661;
+  background-color: #4e5661;
 }
+
+
+.searchBox {
+  position: absolute;
+  top: 1rem;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+#graphData {
+  position: absolute;
+  margin-top: 35em;
+  margin-left: 20em;
+  background-color:black;
+  border-radius: 1em;
+  border: 2px solid grey;
+}
+/* #xAxisLabel {
+  color:white;
+}
+#yAxisLabel{
+  color:white;
+} */
+
+ .shade { 
+    color: white; 
+    font: bold 52px Helvetica, Arial, Sans-Serif;
+    text-shadow: 1px 1px red, 
+                 2px 2px red, 
+                 3px 3px red;
+  }
+  .shade:hover {
+    position: relative; 
+    top: -3px; 
+    left: -3px; 
+    text-shadow: 1px 1px red, 
+                 2px 2px red, 
+                 3px 3px red, 
+                 4px 4px red, 
+                 5px 5px red, 
+                 6px 6px red;
+  }
+
 

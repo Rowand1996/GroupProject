@@ -1,6 +1,7 @@
 import * as mysql from 'mysql';
 import config from '../config';
 import Users from './querys/users';
+import States from './querys/states';
 import AccessTokens from './querys/accesstokens';
 
 export const pool = mysql.createPool(config.mysql);
@@ -18,5 +19,6 @@ export const Query = (query, values) => {
 
 export default {
     Users,
+    States,
     AccessTokens
 }

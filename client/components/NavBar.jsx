@@ -20,7 +20,15 @@ const NavBar = ()  => {
   });
 
   let history = useHistory();
-
+  let logOutBtn = $("#logoutBtn");
+  let loginBtn = $("#dropDownMenu");
+  if(isAuthenticated) {
+    loginBtn.hide();
+    logOutBtn.show();
+  } else {
+    loginBtn.show();
+    logOutBtn.hide();
+  }
   let submitButton = async() => {
     let password = $("#passwordDropDown").val();
     let email = $("#emailDropDown").val();
@@ -99,12 +107,11 @@ const NavBar = ()  => {
           <a className="nav-item nav-link" href="/symptoms">
             Symptoms
           </a>
-          <a className="nav-item nav-link" id="Logout" href="#">
-            <button type="button" onClick={logOut}>
-              LogOut
-            </button>
-          </a>
           
+            <button type="button" id="logoutBtn" className="nav-item nav-link btn btn-link px-0 py-0" onClick={logOut}>
+                LogOut
+            </button>
+            
 
 
           
