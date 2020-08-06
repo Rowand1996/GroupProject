@@ -1,9 +1,9 @@
 #mainBody {
-  /* background-image: url("https://www.health.harvard.edu/media/content/images/GettyImages-1200706447-crop.jpg");
+  background-image: url("https://elgin.edu/media/elginedu/news-and-events/COVID-19-1-800x500-1.jpg");
   background-position: center;
   background-repeat: no-repeat; 
-  background-size: cover; */
-  background-color: #A38876;
+  background-size: cover;
+  /* background-color: #A38876; */
 }
 
 .navbar-brand {
@@ -83,5 +83,22 @@ h1 {
   margin-left: 20em;
 }
 
-
+ .shade { 
+    color: white; 
+    font: bold 52px Helvetica, Arial, Sans-Serif;
+    text-shadow: 1px 1px red, 
+                 2px 2px red, 
+                 3px 3px red;
+  }
+  .shade:hover {
+    position: relative; 
+    top: -3px; 
+    left: -3px; 
+    text-shadow: 1px 1px red, 
+                 2px 2px red, 
+                 3px 3px red, 
+                 4px 4px red, 
+                 5px 5px red, 
+                 6px 6px red;
+  }
 
