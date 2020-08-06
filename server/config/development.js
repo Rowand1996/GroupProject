@@ -10,4 +10,5 @@ export default {
     auth: {
         secret: 'iamasecret'
     }
+    
 }
