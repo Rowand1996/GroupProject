@@ -145,16 +145,17 @@ const statePage = () => {
                         width={550}
                         height={400}
                         data={graphData}
-                        margin={{ top: 20, right: 20, bottom: 40, left: 20 }}
+                        margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
                     >
                         {/* <CartesianGrid stroke="#f5f5f5" /> */}
                         {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
                         <Tooltip />
-                        <XAxis>
-                            <Label position="insideBottom"  offset={-20}>Last 30 Days</Label>
+                        <XAxis stroke="white">
+                            <Label style={{  fill: 'white' }} position="insideBottom"  offset={-20}>Last 30 Days</Label>
                         </XAxis>
-                        <YAxis domain={[0, scaleValue]} allowDataOverflow width={130}> 
-                            <Label  position="center" offset={0} angle={270} > Number of New Infected</Label>
+                        {/* width={130} */}
+                        <YAxis domain={[0, scaleValue]} stroke="white" allowDataOverflow > 
+                            <Label style={{  fill: 'white',textAnchor: 'middle' }} position="insideLeft" offset={-10} angle={270} > Number of New Infected</Label>
                         </YAxis>
                         <Line type="monotone" stroke="red" dataKey="positiveIncrease" dot={false} activeDot={{ fill: 'white', stroke: 'black', r: 6 }} />
                         {/* <Line type="monotone" dataKey="positiveIncrease" activeDot={{ fill: '#387908', stroke: 'none', r: 6 }} /> */}
