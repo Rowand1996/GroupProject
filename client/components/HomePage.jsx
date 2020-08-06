@@ -127,14 +127,14 @@ render() {
     <div className="App">
       <NavBar />
       <h1>RonaRadar</h1>
-      <p>{totalNumDeaths}</p>
-      <p>{totalConfirmedCases}</p>
-      <p>{totalConfirmedRecovered}</p>
       <div className="d-flex justify-content-center">
         <USAMap
           customize={this.statesCustomConfig()}
           onClick={this.mapHandler} />
       </div>
+          <h1 className='shade'>{totalNumDeaths}</h1>
+          <h1 className='shade'>{totalConfirmedCases}</h1>
+          <h1 className='shade'>{totalConfirmedRecovered}</h1>
     </div>
   )
 
