@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import NavBar from "./NavBar.jsx";
 import { Link } from "react-router-dom";
 
+
 export default function Symptoms() {
+
+  
+
   return (
     <>
       <NavBar />
@@ -19,7 +23,7 @@ export default function Symptoms() {
             <h3>Sore Throat</h3>
             <h3>Congestion or Runny Nose</h3>
             <h3>Nausea or Vomiting</h3>
-            <h3>Dirrhea</h3>
+            <h3>diarrhea</h3>
           </ul>
           <div className="text-center">
             <iframe
