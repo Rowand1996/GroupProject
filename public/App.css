@@ -2,7 +2,7 @@
   background-image: url("https://elgin.edu/media/elginedu/news-and-events/COVID-19-1-800x500-1.jpg");
   background-position: center;
   background-repeat: no-repeat; 
-  background-size: cover; */
+  background-size: cover; 
   background-color: #a38876;
 }
 
@@ -15,6 +15,14 @@
 #Logo {
   margin-right: 2px;
 }
+span {
+  color: white;
+  padding-top:11px;
+  position: absolute;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgb(0,0,0);
+}
+
 #logoutBtn {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
@@ -33,18 +41,23 @@ path {
 }
 
 path:hover {
-  opacity: 0.5;
+  fill: #595959;
   cursor: pointer;
 }
 
 .us-state-map {
-  width: 600px;
-  height: 300px;
+  width: 900px;
+  height: 600px;
 }
 
 h1 {
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgb(0,0,0);
   text-align: center;
-  color: #a75351;
+  color: white;
+}
+#title {
+  font-size: 100px;
 }
 
 #stateImg {
@@ -55,8 +68,9 @@ h1 {
 }
 #stateInfo {
   border: 2px solid grey;
+  margin-left:-250px;
   margin-top: 2.5em;
-  float: left;
+  /* float: left; */
   position: absolute;
   background-color: black;
   border-radius: 1em;
@@ -93,35 +107,46 @@ h1 {
 #graphData {
   position: absolute;
   margin-top: 35em;
-  margin-left: 20em;
+  margin-left: 70px;
+  margin-bottom:20px;
   background-color:black;
   border-radius: 1em;
   border: 2px solid grey;
 }
-/* #xAxisLabel {
+#graphData2 {
+  position: absolute;
+  margin-top: 35em;
+  margin-left: 40em;
+  margin-bottom:20px;
+  background-color:black;
+  border-radius: 1em;
+  border: 2px solid grey;
+}
+.custom-tooltip {
   color:white;
 }
-#yAxisLabel{
-  color:white;
-} */
 
- .shade { 
-    color: white; 
-    font: bold 52px Helvetica, Arial, Sans-Serif;
-    text-shadow: 1px 1px red, 
-                 2px 2px red, 
-                 3px 3px red;
-  }
-  .shade:hover {
-    position: relative; 
-    top: -3px; 
-    left: -3px; 
-    text-shadow: 1px 1px red, 
+#mapDiv {
+  margin-right:-100px;
+}
+
+.shade { 
+  color: white; 
+  font: bold 52px Helvetica, Arial, Sans-Serif;
+  text-shadow: 1px 1px red, 
+                2px 2px red, 
+                3px 3px red;
+}
+.shade:hover {
+  position: relative; 
+  top: -3px; 
+  left: -3px; 
+  text-shadow: 1px 1px red, 
                  2px 2px red, 
                  3px 3px red, 
                  4px 4px red, 
                  5px 5px red, 
                  6px 6px red;
-  }
+}
 
 

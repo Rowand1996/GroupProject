@@ -18,6 +18,7 @@ const statePage = () => {
     const [oneState, setOneState] = useState({});
     const [graphData, setgraphData] = useState([]);
     const [scaleValue, setscaleValue] = useState(0);
+    const [scaleValue2, setscaleValue2] = useState(0);
 
     const style = {
         lineHeight: '24px',
@@ -51,9 +52,15 @@ const statePage = () => {
                 }
             }
             let tempData = [];
+            let tempDeathData = [];
             let maxIncrease = 0;
+            let maxDeathIncrease = 0;
             for (let i = 0; i < allStates.length; i++) {
                 if (allStates[i].state === id) {
+                    console.log(allStates[i]);
+                    if (allStates[i].deathIncrease > maxDeathIncrease) {
+                        maxDeathIncrease = allStates[i].deathIncrease;
+                    }
                     if (allStates[i].positiveIncrease > maxIncrease) {
                         maxIncrease = allStates[i].positiveIncrease;
                     }
@@ -64,8 +71,32 @@ const statePage = () => {
                 }
             }
             switch (true) {
+                case maxIncrease < 100:
+                    setscaleValue(100);
+                    break;
+                case maxIncrease < 200:
+                    setscaleValue(200);
+                    break;
+                case maxIncrease < 300:
+                    setscaleValue(300);
+                    break;
+                case maxIncrease < 400:
+                    setscaleValue(400);
+                    break;
                 case maxIncrease < 500:
                     setscaleValue(500);
+                    break;
+                case maxIncrease < 600:
+                    setscaleValue(600);
+                    break;
+                case maxIncrease < 700:
+                    setscaleValue(700);
+                    break;
+                case maxIncrease < 800:
+                    setscaleValue(800);
+                    break;
+                case maxIncrease < 900:
+                    setscaleValue(900);
                     break;
                 case maxIncrease < 1000:
                     setscaleValue(1000);
@@ -86,6 +117,55 @@ const statePage = () => {
                     setscaleValue(20000);
                     break;
             }
+
+            switch (true) {
+                case maxDeathIncrease < 50:
+                    setscaleValue2(50);
+                    break;
+                case maxDeathIncrease < 75:
+                    setscaleValue2(75);
+                    break;
+                case maxDeathIncrease < 100:
+                    setscaleValue2(100);
+                    break;
+                case maxDeathIncrease < 200:
+                    setscaleValue2(200);
+                    break;
+                case maxDeathIncrease < 300:
+                    setscaleValue2(300);
+                    break;
+                case maxDeathIncrease < 400:
+                    setscaleValue2(400);
+                    break;
+                case maxDeathIncrease < 500:
+                    setscaleValue2(500);
+                    break;
+                case maxDeathIncrease < 600:
+                    setscaleValue2(600);
+                    break;
+                case maxDeathIncrease < 700:
+                    setscaleValue2(700);
+                    break;
+                case maxDeathIncrease < 800:
+                    setscaleValue2(800);
+                    break;
+                case maxDeathIncrease < 900:
+                    setscaleValue2(900);
+                    break;
+                case maxDeathIncrease < 1000:
+                    setscaleValue2(1000);
+                    break;
+                case maxDeathIncrease < 3000:
+                    setscaleValue2(3000);
+                    break;
+                case maxDeathIncrease < 5000:
+                    setscaleValue2(5000);
+                    break;
+                default:
+                    setscaleValue2(10000);
+                    break;
+            }
+
             setgraphData(tempData.reverse());
         })();
     }, []);
@@ -114,6 +194,30 @@ const statePage = () => {
             break;
     }
 
+    const CustomTooltip = ({ active, payload, label }) => {
+        if (active) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`New Infected - ${payload[0].value}`}</p>
+                </div>
+            );
+        }
+    
+        return null;
+    };
+
+    const CustomTooltip2 = ({ active, payload, label }) => {
+        if (active) {
+            return (
+                <div className="custom-tooltip">
+                    <p className="label">{`New Deaths - ${payload[0].value}`}</p>
+                </div>
+            );
+        }
+    
+        return null;
+    };
+
     return (
         <Fragment>
             <NavBar />
@@ -140,26 +244,51 @@ const statePage = () => {
                 <div id="stateImg">
                     <img src={`/assets/${imgId}.png`}></img>
                 </div>
-                <div id="graphData">
-                    <LineChart
-                        width={550}
-                        height={400}
-                        data={graphData}
-                        margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
-                    >
-                        {/* <CartesianGrid stroke="#f5f5f5" /> */}
-                        {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
-                        <Tooltip />
-                        <XAxis stroke="white">
-                            <Label style={{  fill: 'white' }} position="insideBottom"  offset={-20}>Last 30 Days</Label>
-                        </XAxis>
-                        {/* width={130} */}
-                        <YAxis domain={[0, scaleValue]} stroke="white" allowDataOverflow > 
-                            <Label style={{  fill: 'white',textAnchor: 'middle' }} position="insideLeft" offset={-10} angle={270} > Number of New Infected</Label>
-                        </YAxis>
-                        <Line type="monotone" stroke="red" dataKey="positiveIncrease" dot={false} activeDot={{ fill: 'white', stroke: 'black', r: 6 }} />
-                        {/* <Line type="monotone" dataKey="positiveIncrease" activeDot={{ fill: '#387908', stroke: 'none', r: 6 }} /> */}
-                    </LineChart>
+                <div>
+                    <div id="graphData">
+                        <LineChart
+                            width={550}
+                            height={400}
+                            data={graphData}
+                            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                        >
+                            {/* <CartesianGrid stroke="#f5f5f5" /> */}
+                            {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
+                            <Tooltip content={<CustomTooltip />} />
+                            <XAxis stroke="white">
+                                <Label style={{ fill: 'white' }} position="insideBottom" offset={-20}>Last 30 Days</Label>
+                            </XAxis>
+                            {/* width={130} */}
+                            <YAxis domain={[0, scaleValue]} stroke="white" allowDataOverflow >
+                                <Label style={{ fill: 'white', textAnchor: 'middle' }} position="insideLeft" offset={-10} angle={270} > Number of New Infected</Label>
+                            </YAxis>
+                            <Line type="monotone" stroke="red" dataKey="positiveIncrease" dot={false} activeDot={{ fill: 'white', stroke: 'black', r: 6 }} />
+                            {/* <Line type="monotone" dataKey="positiveIncrease" activeDot={{ fill: '#387908', stroke: 'none', r: 6 }} /> */}
+                        </LineChart>
+                    </div>
+
+                    <div id="graphData2">
+                        <LineChart
+                            width={550}
+                            height={400}
+                            data={graphData}
+                            margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
+                        >
+                            {/* <CartesianGrid stroke="#f5f5f5" /> */}
+                            {/* <Legend iconSize={10} width={120} height={140} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
+                            <Tooltip content={<CustomTooltip2 />} />
+                            <XAxis stroke="white">
+                                <Label style={{ fill: 'white' }} position="insideBottom" offset={-20}>Last 30 Days</Label>
+                            </XAxis>
+                            {/* width={130} */}
+                            <YAxis domain={[0, scaleValue2]} stroke="white" allowDataOverflow >
+                                <Label style={{ fill: 'white', textAnchor: 'middle' }} position="insideLeft" offset={-10} angle={270} > Number of New Deaths</Label>
+                            </YAxis>
+                            <Line type="monotone" stroke="red" dataKey="deathIncrease" dot={false} activeDot={{ fill: 'white', stroke: 'black', r: 6 }} />
+                            {/* <Line type="monotone" dataKey="positiveIncrease" activeDot={{ fill: '#387908', stroke: 'none', r: 6 }} /> */}
+                        </LineChart>
+                    </div>
+
                 </div>
             </div>
         </Fragment>

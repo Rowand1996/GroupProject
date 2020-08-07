@@ -1,54 +1,61 @@
-import React from "react";
-import NavBar from './NavBar.jsx'
-import mapStyles from './mapStyles.js'
-import Search from './Search.jsx'
-import { GoogleMap, LoadScript, MarkerClusterer, Marker } from '@react-google-maps/api';
+// import React, { Component } from 'react';
+// import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
+import NavBar from './NavBar.jsx';
+import React, { Component } from 'react';
+import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 
- 
-const containerStyle = {
-  width: '100vw',
-  height: '100vh'
-};
- 
-const center = {
-  lat: 33.522861,
-  lng:  -86.807701
-};
+import CurrentLocation from '../src/map.jsx';
 
-const options = {
-  styles: mapStyles
+export class MapContainer extends Component {
+  state = {
+    showingInfoWindow: false,
+    activeMarker: {},
+    selectedPlace: {}
+  };
+
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <div id="MapBox">
+          <CurrentLocation
+            centerAroundCurrentLocation
+            google={this.props.google}
+          >
+            <Marker onClick={this.onMarkerClick} name={'current location'} />
+            <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+              onClose={this.onClose}
+            >
+              <div>
+                <h4>{this.state.selectedPlace.name}</h4>
+              </div>
+            </InfoWindow>
+          </CurrentLocation>
+
+        </div>
+      </div>
+    );
+  }
 }
- 
-function Map() {
 
- 
-  return (
-  <>
-  <NavBar />
-<div> 
- 
-    <LoadScript
-    
-      googleMapsApiKey="AIzaSyDZu9FOiPgWtv2VpNYMPs_2EU53abSDm3I"
-    > 
-    <Search />
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        options={options}
-      
-        // onLoad={onLoad}
-        // onUnmount={onUnmount}
-      >
-      
-        
-      </GoogleMap>
-    </LoadScript>
-    </div>
-  
-    </>
-  )
-}
- 
-export default React.memo(Map)
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDZu9FOiPgWtv2VpNYMPs_2EU53abSDm3I'
+})(MapContainer);

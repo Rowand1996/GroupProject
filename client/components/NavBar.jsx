@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { json, User, SetAccessToken, isLoggedIn} from '../utils/api';
-
+import Logo from '../../public/assets/RadarLogo.png';
+import Logo2 from '../../public/assets/RadarLogo2.png';
+import Logo3 from '../../public/assets/RadarLogo3.png';
 
 // let submitButton = $("#submitLogin");
 // submitButton.click(function(){
@@ -72,19 +74,20 @@ const NavBar = ()  => {
 
   return (
 
-
+    
 
     <nav className="navbar nav-fill sticky-top navbar-expand-lg navbar-light">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         <img id="Logo"
-          src="https://www.lblstrategies.com/wp-content/uploads/2016/10/proximity-150698_640.png"
-          width="30"
-          height="30"
+          src={Logo3}
+          width="50"
+          height="50"
           className="d-inline-block align-top"
           alt=""
         />
-        RonaRadar
+        <span id="RonaRadar"> RonaRadar </span>
       </a>
+      
       <button
         className="navbar-toggler"
         type="button"

@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 
 
+
 export default class HomePage extends React.Component {
   constructor(props) {
     super(props);
@@ -126,11 +127,12 @@ render() {
   return (
     <div className="App">
       <NavBar />
-      <h1>RonaRadar</h1>
+      <h1 id="title">RonaRadar</h1>
       <div className="d-flex justify-content-center">
         <USAMap
           customize={this.statesCustomConfig()}
-          onClick={this.mapHandler} />
+          onClick={this.mapHandler}
+            />
       </div>
           <h1 className='shade'>{totalNumDeaths}</h1>
           <h1 className='shade'>{totalConfirmedCases}</h1>
