@@ -31,7 +31,7 @@ export default class HomePage extends React.Component {
       let allStates = await res.json();
       var myHeaders = new Headers();
       myHeaders.append("Subscription-Key", "3009d4ccc29e4808af1ccc25c69b4d5d");
-
+      console.log(allStates);
       var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -40,7 +40,7 @@ export default class HomePage extends React.Component {
 
       let res3 = await fetch("https://api.smartable.ai/coronavirus/stats/US", requestOptions);
       let usStats = await res3.json();
-      
+
       let totalDeaths = `Total Deaths: ${usStats.stats.totalDeaths}`;
       let totalCases = `Total Cases: ${usStats.stats.totalConfirmedCases}`;
       let totalRecovered = `Total Recovered: ${usStats.stats.totalRecoveredCases}`;
@@ -106,40 +106,49 @@ export default class HomePage extends React.Component {
           };
           // console.log(jsonData);
         }
-        
+
       } else {
         return jsonData;
       }
     }
-    
-    
+
+
     return jsonData;
 
   }
 
 
 
-render() {
-  if (this.state.redirect) {
-    return < Redirect to={this.state.redirect} />
-  }
-  const { totalNumDeaths, totalConfirmedCases, totalConfirmedRecovered } = this.state;
-  return (
-    <div className="App">
-      <NavBar />
-      <h1 id="title">RonaRadar</h1>
-      <div className="d-flex justify-content-center">
-        <USAMap
-          customize={this.statesCustomConfig()}
-          onClick={this.mapHandler}
-            />
+  render() {
+    if (this.state.redirect) {
+      return < Redirect to={this.state.redirect} />
+    }
+    const { totalNumDeaths, totalConfirmedCases, totalConfirmedRecovered } = this.state;
+    return (
+      <div className="App">
+        <NavBar />
+        <div id="main">
+          <div className="d-flex justify-content-center">
+            <div>
+              <div className="mapHeader d-flex justify-content-center">
+                <span id="mapTitle">Daily New Infected</span>
+              </div>
+              <USAMap
+                customize={this.statesCustomConfig()}
+                onClick={this.mapHandler}
+              />
+            </div>
+            <div className="mainInfo">
+              <p className='shade'>{totalNumDeaths}</p>
+              <p className='shade'>{totalConfirmedCases}</p>
+              <p className='shade'>{totalConfirmedRecovered}</p>
+
+            </div>
+          </div>
+        </div>
       </div>
-          <h1 className='shade'>{totalNumDeaths}</h1>
-          <h1 className='shade'>{totalConfirmedCases}</h1>
-          <h1 className='shade'>{totalConfirmedRecovered}</h1>
-    </div>
-  )
+    )
 
 
-}
+  }
 }

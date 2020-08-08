@@ -202,7 +202,7 @@ const statePage = () => {
                 </div>
             );
         }
-    
+
         return null;
     };
 
@@ -214,7 +214,7 @@ const statePage = () => {
                 </div>
             );
         }
-    
+
         return null;
     };
 
@@ -225,21 +225,128 @@ const statePage = () => {
                 <div id="stateInfo">
                     <h1 id="stateName">{stateName} </h1>
                     <h6 id="updatedDate"> Last Updated - {currentDate} </h6>
-                    <p>Daily Infected Total - {oneState.positiveIncrease === null ? "N/A" : oneState.positiveIncrease}</p>
-                    <p>Daily Death Total - {oneState.deathIncrease === null ? "N/A" : oneState.deathIncrease}</p>
-                    <p>Total Confirmed Deaths - {oneState.deathConfirmed === null ? "N/A" : oneState.deathConfirmed}</p>
-                    <p>Total Hospitalized - {oneState.hospitalizedCumulative === null ? "N/A" : oneState.hospitalizedCumulative}</p>
-                    <p>Currently Hospitalized - {oneState.hospitalizedCurrently === null ? "N/A" : oneState.hospitalizedCurrently}</p>
-                    <p>Daily Hospitalized Total - {oneState.hospitalizedIncrease === null ? "N/A" : oneState.hospitalizedIncrease}</p>
-                    <p>Total In ICU - {oneState.inIcuCumulative === null ? "N/A" : oneState.inIcuCumulative}</p>
-                    <p>Currently In ICU - {oneState.inIcuCurrently === null ? "N/A" : oneState.inIcuCurrently}</p>
-                    <p>Total Recovered - {oneState.recovered === null ? "N/A" : oneState.recovered}</p>
-                    <p>Total Ever On Ventilator - {oneState.onVentilatorCumulative === null ? "N/A" : oneState.onVentilatorCumulative}</p>
-                    <p>Still On Ventilator - {oneState.onVentilatorCurrently === null ? "N/A" : oneState.onVentilatorCurrently}</p>
-                    <p>Total Tested - {oneState.totalTestResults === null ? "N/A" : oneState.totalTestResults}</p>
-                    <p>Daily Tested - {oneState.totalTestResultsIncrease === null ? "N/A" : oneState.totalTestResultsIncrease}</p>
-                    <p>Total Negative Tests - {oneState.negative === null ? "N/A" : oneState.negative}</p>
-                    <p>Daily Negative Tests - {oneState.negativeIncrease === null ? "N/A" : oneState.negativeIncrease}</p>
+                    <table id="infoTable">
+                        <tr>
+                            <td className="infoLeft"> 
+                                Daily Infected Total:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.positiveIncrease === null ? "N/A" : oneState.positiveIncrease}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                                Daily Death Total:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.deathIncrease === null ? "N/A" : oneState.deathIncrease}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Confirmed Deaths:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.deathConfirmed === null ? "N/A" : oneState.deathConfirmed}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Hospitalized:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.hospitalizedCumulative === null ? "N/A" : oneState.hospitalizedCumulative}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Currently Hospitalized:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.hospitalizedCurrently === null ? "N/A" : oneState.hospitalizedCurrently}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Daily Hospitalized Total:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.hospitalizedIncrease === null ? "N/A" : oneState.hospitalizedIncrease}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total In ICU:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.inIcuCumulative === null ? "N/A" : oneState.inIcuCumulative}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Currently In ICU:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.inIcuCurrently === null ? "N/A" : oneState.inIcuCurrently}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Recovered:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.recovered === null ? "N/A" : oneState.recovered}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Ever On Ventilator:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.onVentilatorCumulative === null ? "N/A" : oneState.onVentilatorCumulative}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Still On Ventilator:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.onVentilatorCurrently === null ? "N/A" : oneState.onVentilatorCurrently}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Tested:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.totalTestResults === null ? "N/A" : oneState.totalTestResults}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Daily Tested: 
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.totalTestResultsIncrease === null ? "N/A" : oneState.totalTestResultsIncrease}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Total Negative Tests:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.negative === null ? "N/A" : oneState.negative}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="infoLeft"> 
+                            Daily Negative Tests:
+                            </td>
+                            <td className="infoRight">
+                                <span >{oneState.negativeIncrease === null ? "N/A" : oneState.negativeIncrease}</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="stateImg">
                     <img src={`/assets/${imgId}.png`}></img>
