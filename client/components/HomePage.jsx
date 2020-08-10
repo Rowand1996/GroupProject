@@ -2,6 +2,7 @@ import React from 'react'
 import NavBar from './NavBar.jsx';
 import USAMap from "react-usa-map";
 import { Redirect } from 'react-router-dom';
+import numeral from 'numeral'
 
 
 
@@ -41,14 +42,14 @@ export default class HomePage extends React.Component {
       let res3 = await fetch("https://api.smartable.ai/coronavirus/stats/US", requestOptions);
       let usStats = await res3.json();
 
-      let totalDeaths = `Total Deaths: ${usStats.stats.totalDeaths}`;
-      let totalCases = `Total Cases: ${usStats.stats.totalConfirmedCases}`;
-      let totalRecovered = `Total Recovered: ${usStats.stats.totalRecoveredCases}`;
+      let totalDeaths = `${usStats.stats.totalDeaths}`;
+      let totalCases = `${usStats.stats.totalConfirmedCases}`;
+      let totalRecovered = `${usStats.stats.totalRecoveredCases}`;
 
       this.setState({
-        totalNumDeaths: totalDeaths,
-        totalConfirmedCases: totalCases,
-        totalConfirmedRecovered: totalRecovered,
+        totalNumDeaths: numeral(totalDeaths).format('0.0a'),
+        totalConfirmedCases: numeral(totalCases).format('0.0a'),
+        totalConfirmedRecovered: numeral(totalRecovered).format('0.0a'),
         isLoading: false,
         allStates: allStates
       })
@@ -88,7 +89,7 @@ export default class HomePage extends React.Component {
               break;
 
             default:
-              stateColor = "#808080"
+              stateColor = "#f2df91"
               break;
           }
 
@@ -139,12 +140,40 @@ export default class HomePage extends React.Component {
               />
             </div>
             <div className="mainInfo">
-              <p className='shade'>{totalNumDeaths}</p>
-              <p className='shade'>{totalConfirmedCases}</p>
-              <p className='shade'>{totalConfirmedRecovered}</p>
-
+              <p className="firstPTag">TOTAL CASES</p>
+              <p className="totalConfirmed">{totalConfirmedCases}</p>
+              <p className="secondPTag">TOTAL RECOVERED</p>
+              <p className="totalRecovered">{totalConfirmedRecovered}</p>
+              <p className="thirdPTag">TOTAL DEATHS</p>
+              <p className="totalDeaths">{totalNumDeaths}</p>
+            </div>
+            <div className="legendContainer">
+              <p className="legendTxt">Number Of Cases</p>
+              <div className="legend">
+                <div className="firstItem">
+                  <p className="ConnectorLine">|</p>
+                  <p className="ConnectorLineTxt">0 - 500</p>
+                </div>
+                <div className="secondItem">
+                <p className="ConnectorLine">|</p>
+                <p className="ConnectorLineTxt">501 - 1,000</p>
+                </div>
+                <div className="thirdItem">
+                <p className="ConnectorLine">|</p>
+                <p className="ConnectorLineTxt">1,001 - 3,500</p>
+                </div>
+                <div className="forthItem">
+                <p className="ConnectorLine">|</p>
+                <p className="ConnectorLineTxt">3,501 - 10,000</p>
+                </div>
+                <div className="fifthItem">
+                <p className="ConnectorLine">|</p>
+                <p className="ConnectorLineTxt">10,001 - 100,000</p>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     )

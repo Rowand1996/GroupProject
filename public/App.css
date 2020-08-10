@@ -2,12 +2,96 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.DC {
+  display: none;
+}
+
 #mainBody {
   
   background-position: center;
   background-repeat: no-repeat; 
   background-size: cover; 
   background-color:white;
+}
+
+.firstPTag {
+  margin-top: 150px;
+  font-size: 15px;
+  font-weight: 200;
+}
+.totalConfirmed {
+  font-size: 40px;
+  margin-top:-30px;
+}
+.secondPTag {
+  font-size: 15px;
+  font-weight: 200;
+  margin-top:-20px;
+}
+.totalRecovered {
+  font-size: 40px;
+  margin-top:-30px;
+}
+.thirdPTag {
+  font-size: 15px;
+  font-weight: 200;
+  margin-top:-20px;
+}
+.totalDeaths {
+  font-size: 40px;
+  margin-top:-30px;
+}
+.legendContainer {
+  position: absolute; 
+  margin-top: 470px;
+  margin-right: 190px;
+}
+.legendTxt {
+  text-align: center;
+  font-size:15px;
+  font-weight:200;
+}
+.firstItem {
+  float:left;
+  width:100px;
+  height:10px;
+  background-color:#f2df91;
+}
+.secondItem {
+  float:left;
+  width:100px;
+  height:10px;
+  background-color:#ffae43;
+}
+.thirdItem {
+  float:left;
+  width:100px;
+  height:10px;
+  background-color:#ff6e0b;
+}
+.forthItem {
+  float:left;
+  width:100px;
+  height:10px;
+  background-color:#ce0a05;
+}
+.fifthItem {
+  float:left;
+  width:100px;
+  height:10px;
+  background-color:#8B0000;
+}
+.ConnectorLine {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 100;
+  margin-top:-10px;
+}
+.ConnectorLineTxt {
+  font-size:10px;
+  font-weight: 200;
+  text-align:center;
+  margin-top:-20px;
 }
 
 #header {
@@ -111,18 +195,19 @@ path:hover {
   width: 700px;
   height: 550px;
   position: absolute;
-  padding-left: 20em;
+  padding-left:13em;
 }
 #stateInfo {
-  border: 2px solid grey;
-  margin-left:-250px;
-  margin-top: 2.5em;
-  /* float: left; */
-  position: absolute;
-  background-color: black;
+  margin-left:-550px;
+  margin-top: 50px;
+  float: left;
+  position: relative;
+  width:300px;
+  background-color: #D3D3D3;
   border-radius: 1em;
 }
 #stateName {
+  color:black;
   text-align: center;
   margin: 10px;
 }
@@ -130,11 +215,9 @@ path:hover {
   text-align: center;
   color: red;
 }
-#stateInfo p {
-  text-decoration: underline;
-  text-align: center;
+td {
   margin: 10px;
-  color: white;
+  color: black;
 }
 
 
@@ -151,20 +234,18 @@ path:hover {
 #graphData {
   position: absolute;
   margin-top: 35em;
-  margin-left: 70px;
+  margin-left: 150px;
   margin-bottom:20px;
-  background-color:black;
+  background-color:#D3D3D3;
   border-radius: 1em;
-  border: 2px solid grey;
 }
 #graphData2 {
   position: absolute;
   margin-top: 35em;
-  margin-left: 40em;
+  margin-left: -450px;
   margin-bottom:20px;
-  background-color:black;
+  background-color:#D3D3D3;
   border-radius: 1em;
-  border: 2px solid grey;
 }
 .custom-tooltip {
   color:white;
@@ -206,3 +287,11 @@ path:hover {
   width: 30%;
   text-align:right;
 }
+
+#news-header {
+  text-align: center;
+}
+.symptomsHeader {
+  text-align: center;
+}
+
