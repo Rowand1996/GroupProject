@@ -12,18 +12,18 @@ export default function Symptoms() {
       <NavBar />
       <div>
         <div className="container">
-          <h1>Symptoms</h1>
+          <h1 className="symptomsHeader">Symptoms</h1>
           <ul className="text-center">
             <h3>Fever or Chills</h3>
             <h3>Shortness of Breathe or Difficultly Breathing</h3>
-            <h4>Fatigue</h4>
+            <h3>Fatigue</h3>
             <h3>Muscle or Body Aches</h3>
             <h3>Headache</h3>
             <h3>New Loss of Taste or Smell</h3>
             <h3>Sore Throat</h3>
             <h3>Congestion or Runny Nose</h3>
             <h3>Nausea or Vomiting</h3>
-            <h3>diarrhea</h3>
+            <h3>Diarrhea</h3>
           </ul>
           <div className="text-center">
             <iframe
@@ -37,14 +37,14 @@ export default function Symptoms() {
 
             <h1>
               If you or anyone you know is showing any of these sign seek
-              emergency medical care immediatly :
+              emergency medical care immediately :
             </h1>
             <ul>
-              <h3>Trouble Breath</h3>
-              <h3>Persistent pain or pressure in the chest</h3>
+              <h3>Trouble Breathing</h3>
+              <h3>Persistent Pain or Pressure in the Chest</h3>
               <h3>New confusion</h3>
-              <h3>Inability to wake or stay awake</h3>
-              <h3>Bluish lips or face</h3>
+              <h3>Inability to Wake or Stay Awake</h3>
+              <h3>Bluish Lips or Face</h3>
             </ul>
 
             <Link to="/map">
