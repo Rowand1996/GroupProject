@@ -12,7 +12,7 @@ export default function Symptoms() {
       <NavBar />
       <div>
         <div className="container">
-          <h1 className="symptomsHeader">Symptoms</h1>
+          <h1 className="symptomsHeader">Symptoms Of Covid</h1>
           <ul className="text-center">
             <h3>Fever or Chills</h3>
             <h3>Shortness of Breathe or Difficultly Breathing</h3>
@@ -48,14 +48,10 @@ export default function Symptoms() {
             </ul>
 
             <Link to="/map">
-              <button type="button" className="btn btn-lg btn-danger mr-4">
+              <button type="button" className="btn btn-lg btn-danger">
                 Location To Get Tested
               </button>
             </Link>
-
-            <button type="button" className="btn btn-lg btn-danger">
-              Nearest Hospital
-            </button>
           </div>
         </div>
       </div>

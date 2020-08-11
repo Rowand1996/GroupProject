@@ -1,7 +1,7 @@
 // import React, { Component } from 'react';
 // import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react';
 import NavBar from './NavBar.jsx';
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import Logo4 from '../../public/assets/RadarLogo4.png';
 
@@ -44,7 +44,6 @@ export class MapContainer extends Component {
   componentDidUpdate = async () => {
     console.log(this.state.currentLocation);
 
- 
     if (!this.state.placesLoaded) {
       console.log("got here...");
       let res = await fetch(`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&rankby=distance&keyword=Covid-19%20Testing%20Site&key=AIzaSyDZu9FOiPgWtv2VpNYMPs_2EU53abSDm3I`);
@@ -54,7 +53,7 @@ export class MapContainer extends Component {
         placesLoaded: true
       });
     }
-    
+
   }
 
   onMarkerClick = (props, marker, e) =>
@@ -75,41 +74,63 @@ export class MapContainer extends Component {
 
 
   render() {
- 
+
     return (
-    
-      <div>
-        <NavBar />
-        <div id="MapBox">
-          <CurrentLocation
-            centerAroundCurrentLocation
-            google={this.props.google}
-            locationCallback={this.setLocation}
-          >
+      <Fragment>
 
-            <Marker onClick={this.onMarkerClick} name={'current location'} position={{ lat:this.state.currentLocation.lat, lng: this.state.currentLocation.lng }}/>
-
-            {
-              //console.log(this.state.placesNearMe.results)
-              this.state.placesNearMe.results?.map((item) => (
-                <Marker onClick={this.onMarkerClick} key={item.place_id} name={item.name} address={item.vicinity} position={{ lat: item.geometry.location.lat, lng: item.geometry.location.lng }} />
-              ))
-            }
-
-            <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}
-              onClose={this.onClose}
+        <div>
+          <NavBar />
+          <div id="MapBox">
+            <CurrentLocation
+              centerAroundCurrentLocation
+              google={this.props.google}
+              locationCallback={this.setLocation}
             >
-              <div>
-                <h4>{this.state.selectedPlace.name}</h4>
-                <p>{this.state.selectedPlace.address}</p>
-              </div>
-            </InfoWindow>
-          </CurrentLocation>
 
+              <Marker onClick={this.onMarkerClick} name={'current location'} position={{ lat: this.state.currentLocation.lat, lng: this.state.currentLocation.lng }} />
+
+              {
+                //console.log(this.state.placesNearMe.results)
+                this.state.placesNearMe.results?.map((item) => (
+                  <Marker onClick={this.onMarkerClick} key={item.place_id} name={item.name} address={item.vicinity} position={{ lat: item.geometry.location.lat, lng: item.geometry.location.lng }} />
+                ))
+              }
+
+              <InfoWindow
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+                onClose={this.onClose}
+              >
+                <div>
+                  <h4>{this.state.selectedPlace.name}</h4>
+                  <p>{this.state.selectedPlace.address}</p>
+                </div>
+              </InfoWindow>
+            </CurrentLocation>
+          </div>
         </div>
-      </div>
+
+        <div id="cardBox">
+          {
+            this.state.placesNearMe.results?.map((newItem) => (
+              <div className="d-flex justify-content-center">
+                <div id="directionsCard" className="card">
+                  <img id="locationImg" className="card-img-top" src={newItem.icon} alt="Card image cap" />
+                  <div className="card-body">
+                    <h5 className="card-title">{newItem.name}</h5>
+                    <p> Buisness Status: {newItem.business_status}</p>
+                    <p> Is Store Open: {newItem.open_now}</p>
+                    <p> Rating: {newItem.user_ratings_total}</p>
+                    <p>Location: {newItem.vicinity}</p>
+                    <a href="#" className="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+
+            ))
+          }
+        </div>
+      </Fragment>
     );
   }
 }
