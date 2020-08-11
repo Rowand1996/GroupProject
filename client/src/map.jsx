@@ -107,8 +107,8 @@ export class CurrentLocation extends React.Component {
     render() {
         const style = Object.assign({}, mapStyles.map);
         return (
-            <div>
-                <div style={style} ref="map">
+            <div id="outerDivMap" className="d-flex justify-content-center">
+                <div id="innerDivMap" ref="map">
                     Loading map...
                 </div>
                 {this.renderChildren()}
