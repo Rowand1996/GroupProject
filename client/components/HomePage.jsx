@@ -2,7 +2,7 @@ import React from 'react'
 import NavBar from './NavBar.jsx';
 import USAMap from "react-usa-map";
 import { Redirect } from 'react-router-dom';
-import numeral from 'numeral'
+import numeral from 'numeral';
 
 
 
