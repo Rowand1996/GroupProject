@@ -36,7 +36,7 @@ export default function Symptoms() {
             ></iframe>
 
             <h1>
-              If you or anyone you know is showing any of these sign seek
+              If you or anyone you know is showing any of these signs seek
               emergency medical care immediately :
             </h1>
             <ul>
@@ -49,7 +49,7 @@ export default function Symptoms() {
 
             <Link to="/map">
               <button type="button" className="btn btn-lg btn-danger mr-4">
-                Locaion To Get Tested
+                Location To Get Tested
               </button>
             </Link>
 

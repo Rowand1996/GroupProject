@@ -7,6 +7,7 @@ import {
     Label, LabelList
 } from 'recharts';
 import { scalePow, scaleLog } from 'd3-scale';
+import numeral from 'numeral';
 
 const statePage = () => {
     let { id } = useParams();
@@ -233,7 +234,7 @@ const statePage = () => {
                                     Daily Infected Total:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.positiveIncrease === null ? "N/A" : oneState.positiveIncrease}</span>
+                                    <span >{oneState.positiveIncrease === null ? "N/A" : numeral(oneState.positiveIncrease).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -241,7 +242,7 @@ const statePage = () => {
                                     Daily Death Total:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.deathIncrease === null ? "N/A" : oneState.deathIncrease}</span>
+                                    <span >{oneState.deathIncrease === null ? "N/A" : numeral(oneState.deathIncrease).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -249,7 +250,7 @@ const statePage = () => {
                                     Total Confirmed Deaths:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.deathConfirmed === null ? "N/A" : oneState.deathConfirmed}</span>
+                                    <span >{oneState.deathConfirmed === null ? "N/A" : numeral(oneState.deathConfirmed).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -257,7 +258,7 @@ const statePage = () => {
                                     Total Hospitalized:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.hospitalizedCumulative === null ? "N/A" : oneState.hospitalizedCumulative}</span>
+                                    <span >{oneState.hospitalizedCumulative === null ? "N/A" : numeral(oneState.hospitalizedCumulative).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -265,7 +266,7 @@ const statePage = () => {
                                     Currently Hospitalized:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.hospitalizedCurrently === null ? "N/A" : oneState.hospitalizedCurrently}</span>
+                                    <span >{oneState.hospitalizedCurrently === null ? "N/A" : numeral(oneState.hospitalizedCurrently).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -273,7 +274,7 @@ const statePage = () => {
                                     Daily Hospitalized Total:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.hospitalizedIncrease === null ? "N/A" : oneState.hospitalizedIncrease}</span>
+                                    <span >{oneState.hospitalizedIncrease === null ? "N/A" : numeral(oneState.hospitalizedIncrease).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -281,7 +282,7 @@ const statePage = () => {
                                     Total In ICU:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.inIcuCumulative === null ? "N/A" : oneState.inIcuCumulative}</span>
+                                    <span >{oneState.inIcuCumulative === null ? "N/A" : numeral(oneState.inIcuCumulative).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -289,7 +290,7 @@ const statePage = () => {
                                     Currently In ICU:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.inIcuCurrently === null ? "N/A" : oneState.inIcuCurrently}</span>
+                                    <span >{oneState.inIcuCurrently === null ? "N/A" : numeral(oneState.inIcuCurrently).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -297,7 +298,7 @@ const statePage = () => {
                                     Total Recovered:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.recovered === null ? "N/A" : oneState.recovered}</span>
+                                    <span >{oneState.recovered === null ? "N/A" : numeral(oneState.recovered).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -305,7 +306,7 @@ const statePage = () => {
                                     Total Ever On Ventilator:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.onVentilatorCumulative === null ? "N/A" : oneState.onVentilatorCumulative}</span>
+                                    <span >{oneState.onVentilatorCumulative === null ? "N/A" : numeral(oneState.onVentilatorCumulative).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -313,7 +314,7 @@ const statePage = () => {
                                     Still On Ventilator:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.onVentilatorCurrently === null ? "N/A" : oneState.onVentilatorCurrently}</span>
+                                    <span >{oneState.onVentilatorCurrently === null ? "N/A" : numeral(oneState.onVentilatorCurrently).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -321,7 +322,7 @@ const statePage = () => {
                                     Total Tested:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.totalTestResults === null ? "N/A" : oneState.totalTestResults}</span>
+                                    <span >{oneState.totalTestResults === null ? "N/A" : numeral(oneState.totalTestResults).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -329,7 +330,7 @@ const statePage = () => {
                                     Daily Tested:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.totalTestResultsIncrease === null ? "N/A" : oneState.totalTestResultsIncrease}</span>
+                                    <span >{oneState.totalTestResultsIncrease === null ? "N/A" : numeral(oneState.totalTestResultsIncrease).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -337,7 +338,7 @@ const statePage = () => {
                                     Total Negative Tests:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.negative === null ? "N/A" : oneState.negative}</span>
+                                    <span >{oneState.negative === null ? "N/A" : numeral(oneState.negative).format('0,0')}</span>
                                 </td>
                             </tr>
                             <tr>
@@ -345,7 +346,7 @@ const statePage = () => {
                                     Daily Negative Tests:
                             </td>
                                 <td className="infoRight">
-                                    <span >{oneState.negativeIncrease === null ? "N/A" : oneState.negativeIncrease}</span>
+                                    <span >{oneState.negativeIncrease === null ? "N/A" : numeral(oneState.negativeIncrease).format('0,0')}</span>
                                 </td>
                             </tr>
                         </tbody>
