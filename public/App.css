@@ -185,7 +185,7 @@ path:hover {
 }
 
 #mapTitle {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 150;
   text-align: center;
   color: black;
@@ -289,10 +289,13 @@ td {
 }
 
 #news-header {
-  text-align: center;
+  text-align: left;
 }
 .symptomsHeader {
-  text-align: center;
+  text-align: left;
+  font-size: 35px;
+  font-weight: 150;
+  margin-top:20px;
 }
 
  #outerDivMap {
@@ -310,7 +313,7 @@ td {
 
 #cardBox {
   position: relative;
-  margin-top:-100;
+  margin-top:-220;
 }
 #directionsCard {
   width: 30rem;
@@ -320,4 +323,145 @@ td {
   width:50px;
   height:50px;
   text-align:center;
+}
+
+.infoBoxItem {
+  margin:0;
+}
+
+#directionsButton {
+  background-color:#D3D3D3;
+}
+
+#infoDirectionsButton {
+  background-color:#D3D3D3;
+}
+
+#wholePageForSymptoms {
+  margin-left:100px;
+  margin-right:100px;
+}
+.lineUnderTitle {
+  margin-top:-8px;
+}
+#firstSymptomsWord {
+  font-size: 18px;
+  font-weight: 200;
+}
+.allSymptoms {
+  font-size: 15px;
+  font-weight: 200;
+}
+.bold {
+  font-weight:bold;
+}
+.biggerText {
+  font-size: 17px;
+}
+
+.seeADoctor {
+  position: relative;
+  width:620px;
+  height:100px;
+  margin-left:18px;
+  margin-top:20px;
+  margin-bottom:40px;
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+}
+.seeADoctor:hover {
+  box-shadow: 0px 2px 11px 2px rgba(0,0,0,0.75);
+}
+#getTested {
+  background-color:#D3D3D3;
+  margin-left:340px;
+}
+#doctorLogo {
+  padding:10px;
+}
+#getTestedTxt {
+  margin-top:-90px;
+  margin-left:125px;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+#emergencyCareTitle {
+  font-size: 25px;
+  font-weight: 150;
+}
+#emergencyCareUnderFooter {
+  /* font-size: 25px;
+  font-weight: 150; */
+}
+#emergencyCareUnderTitle {
+
+}
+.emergencyCare {
+  background-color:#D3D3D3;
+  font-size: 15px;
+  font-weight: 200;
+  border-radius: 1em;
+  margin-bottom:40px;
+}
+.margin {
+  padding:15px;
+}
+.video {
+  margin-bottom:40px;
+}
+
+#leftAlign {
+  margin-left:100px;
+  margin-right:100px;
+  margin-top: 20px;
+  position: relative;
+}
+#news-link {
+  color:#c31412;
+
+}
+.buttonDiv {
+  margin-top:20px;
+}
+
+#news-header {
+  font-size: 35px;
+  font-weight: 150;
+}
+.textUnderTitle {
+  font-size: 18px;
+  font-weight: 200;
+}
+.card-title {
+  margin-top:10px;
+  font-size: 18px;
+  font-weight: 300;
+}
+.cardName{
+  margin-top:20px;
+  font-size: 15px;
+  font-weight: 200;
+  margin-bottom:5px;
+}
+.cardDescription {
+  font-size: 15px;
+  font-weight: 200;
+}
+.newsCards {
+  width:100%;
+}
+.floatRight {
+  position:absolute;
+  margin-right:5px;
+  margin-left:350px;
+  margin-right:20px;
+}
+#news-img {
+  width: 300px;
+  height:200px;
+  position:absolute;
+}
+.wholeCard {
+  width:100%;
+  height:250px;
 }
